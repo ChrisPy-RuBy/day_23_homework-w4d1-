@@ -42,10 +42,17 @@ post '/pizzas' do
   erb(:create)
 end
 
+get '/pizzas/:id/edit' do
+  @pizza = Pizza.find(params[:id])
+  erb(:edit)
+end
+
 post '/pizzas/:id/delete' do
   @pizza = Pizza.find(params[:id])
   @pizza.delete()
-  erb(:destroy)
+  redirect '/pizzas'
+
+
 end
 
 

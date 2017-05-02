@@ -64,4 +64,9 @@ class Pizza
     return result
   end
 
+  def self.delete ( id )
+    sql = "DELETE FROM pizzas WHERE id=#{id};"
+    SqlRunner.run( sql )
+  end
+  
 end
