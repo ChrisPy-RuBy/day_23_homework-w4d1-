@@ -47,6 +47,13 @@ get '/pizzas/:id/edit' do
   erb(:edit)
 end
 
+post '/pizzas/:id' do
+  @pizza = Pizza.new( params )
+  @pizza.update()
+  erb(:update)
+end
+
+
 post '/pizzas/:id/delete' do
   @pizza = Pizza.find(params[:id])
   @pizza.delete()
